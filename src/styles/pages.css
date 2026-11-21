@@ -1,0 +1,67 @@
+/* ===== Page-by-page layout: every page fits one screen, nav on every page ===== */
+html,body,#root{height:100%}
+#root{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
+main{flex:1;min-height:0;overflow:auto}
+.pg{min-height:100%;max-width:1240px;margin:0 auto;padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+a.btn{text-decoration:none}
+.logo{text-decoration:none}
+nav{overflow-x:auto}
+nav a{padding:8px 14px;border-radius:99px;font-weight:500;font-size:14px;color:var(--text);text-decoration:none;white-space:nowrap}
+nav a:hover,nav a.on{background:var(--surface)}
+.slim{padding:12px 0}
+.slim .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px}
+.slim .links{display:flex;gap:18px;flex-wrap:wrap}.slim a{color:#9CA3AF;text-decoration:none}.slim a:hover{color:#fff}
+/* home */
+.hero2{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero2 h1{font-size:clamp(34px,4.6vw,56px);margin:14px 0}
+.hero2 p{font-size:17px;max-width:480px;margin-bottom:22px}
+.home .stage{max-width:min(380px,44vh)}
+.home .stats{margin-top:26px}
+.offers2{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.offers2 .offer{min-height:0;padding:20px}.offers2 .offer h3{font-size:19px}
+/* shop */
+.shophead{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.shop .filters{margin:0}
+.shop .products{grid-template-columns:repeat(5,1fr);gap:16px}
+.shop .prod .pic{height:104px}.shop .prod .info{padding:12px}
+.shop .prod h3{font-size:15px}.shop .price{font-size:18px;margin:2px 0 8px}
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.about h1{font-size:clamp(30px,4vw,48px);margin:10px 0 14px}
+.mv,.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mv{margin-top:20px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.tile b{font-family:Fraunces,Georgia,serif;font-size:36px;font-weight:500;color:var(--accent);display:block}
+.vals{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.vals span{border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:14px}
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.contact .cinfo{grid-template-columns:1fr 1fr;gap:14px}.contact .cc{padding:18px}
+.contact .cc a{font-size:14px;word-break:break-all}
+.contact .authcard{padding:24px}
+/* faq */
+.qas{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;align-items:start}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.qa button{width:100%;display:flex;justify-content:space-between;gap:12px;text-align:left;background:none;border:0;color:var(--text);font-weight:600;padding:14px 18px;font-size:15px}
+.qa p{padding:0 18px 16px;font-size:14px}
+/* terms & privacy */
+.legal{display:grid;grid-template-columns:270px 1fr;gap:28px;align-items:start}
+.legal .side{display:flex;flex-direction:column;gap:2px}
+.legal .side button{text-align:left;background:none;border:0;color:var(--muted);padding:8px 14px;border-radius:10px;font-size:14px}
+.legal .side button.on{background:var(--surface);color:var(--text);font-weight:600}
+.legal .body{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.legal .body h2{font-size:26px;margin-bottom:0}.legal .body p{margin-top:12px;color:var(--text);opacity:.85}
+.nav2{display:flex;justify-content:space-between;margin-top:22px}.btn:disabled{opacity:.4;cursor:default}
+/* login */
+.authpg .authgrid{grid-template-columns:1fr 540px;gap:48px;width:100%}
+.authpg .authcard{padding:26px}.authpg .field{margin-bottom:12px}
+.two-f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.authpg .rules{margin:6px 0 10px}
+@media(max-width:1100px){.shop .products{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+@media(max-width:900px){
+  .pg{padding:20px 16px}
+  .hero2,.about,.contact,.legal,.qas,.authpg .authgrid{grid-template-columns:1fr}
+  .offers2{grid-template-columns:1fr}
+  .legal .side{flex-direction:row;flex-wrap:wrap}
+  .authside{display:none}.two-f{grid-template-columns:1fr}
+}
+@media(max-width:560px){.contact .cinfo{grid-template-columns:1fr}.mv,.tiles{grid-template-columns:1fr}}
